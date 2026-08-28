@@ -1,0 +1,235 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Erire",
+  "scopeName": "source.erire",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#booleans" },
+    { "include": "#keywords" },
+    { "include": "#directives" },
+    { "include": "#variables" },
+    { "include": "#builtin-commands" },
+    { "include": "#builtin-calls" },
+    { "include": "#ui-elements" },
+    { "include": "#properties" },
+    { "include": "#events" },
+    { "include": "#operators" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.erire",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.erire",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.erire",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.erire",
+              "match": "\\\\(?:[\"\\\\/bfnrt]|u[0-9a-fA-F]{4})"
+            },
+            {
+              "name": "variable.other.interpolated.erire",
+              "match": "\\$[a-zA-Z_][a-zA-Z0-9_.]*"
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.decimal.erire",
+          "match": "\\b\\d+(?:\\.\\d+)?\\b"
+        },
+        {
+          "name": "constant.other.color.hex.erire",
+          "match": "#[0-9a-fA-F]{3,8}\\b"
+        }
+      ]
+    },
+    "booleans": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.erire",
+          "match": "\\b(true|false)\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.import.erire",
+          "match": "\\b(import|python|as|from)\\b"
+        },
+        {
+          "name": "keyword.control.conditional.erire",
+          "match": "\\b(if|else)\\b"
+        },
+        {
+          "name": "keyword.control.loop.erire",
+          "match": "\\b(while|for)\\b"
+        }
+      ]
+    },
+    "directives": {
+      "patterns": [
+        {
+          "name": "keyword.other.directive.erire",
+          "match": "@imp\\b|@[a-zA-Z_][a-zA-Z0-9_]*"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.other.erire",
+          "match": "\\$[a-zA-Z_][a-zA-Z0-9_]*(?:\\.[a-zA-Z_][a-zA-Z0-9_]*)*"
+        }
+      ]
+    },
+    "builtin-commands": {
+      "patterns": [
+        {
+          "name": "support.function.screen.erire",
+          "match": "\\b(screen\\.(?:create|title|bg|add|show|setText))\\b"
+        },
+        {
+          "name": "support.function.var.erire",
+          "match": "\\b(var\\.set)\\b"
+        },
+        {
+          "name": "support.function.timer.erire",
+          "match": "\\b(timer\\.every)\\b"
+        },
+        {
+          "name": "support.function.console.erire",
+          "match": "\\b(console\\.open)\\b"
+        },
+        {
+          "name": "support.function.media-cmd.erire",
+          "match": "\\b(media\\.(?:play|pause|playPause|stop|next|previous|addFiles|openPlaylist|savePlaylist|clear|toggleMute|toggleShuffle|cycleRepeat|seek|seekRelative|setVolume|changeVolume))\\b"
+        },
+        {
+          "name": "support.function.storage-cmd.erire",
+          "match": "\\b(storage\\.write)\\b"
+        }
+      ]
+    },
+    "builtin-calls": {
+      "patterns": [
+        {
+          "name": "support.function.python.erire",
+          "match": "\\b(py\\.call)\\b"
+        },
+        {
+          "name": "support.function.text.erire",
+          "match": "\\b(text\\.(?:upper|lower|title|length|contains|concat))\\b"
+        },
+        {
+          "name": "support.function.math.erire",
+          "match": "\\b(math\\.(?:add|sub|mul|div|min|max))\\b"
+        },
+        {
+          "name": "support.function.sys.erire",
+          "match": "\\b(sys\\.(?:cwd|hostname|platform))\\b"
+        },
+        {
+          "name": "support.function.time.erire",
+          "match": "\\b(time\\.now)\\b"
+        },
+        {
+          "name": "support.function.dialog.erire",
+          "match": "\\b(dialog\\.(?:openFile|openFiles|saveFile))\\b"
+        },
+        {
+          "name": "support.function.storage.erire",
+          "match": "\\b(storage\\.(?:read|exists))\\b"
+        },
+        {
+          "name": "support.function.runtime.erire",
+          "match": "\\b(runtime\\.(?:liveEnabled|liveVersion|liveStatus|liveError|widgetCount|timerCount|hasVar|getVar|widgetExists))\\b"
+        },
+        {
+          "name": "support.function.media-query.erire",
+          "match": "\\b(media\\.(?:state|position|duration|volume|count|index|muted|shuffle|repeat|currentName|currentTitle|currentArtist|currentYear|currentBitrate|currentSampleRate|currentArt|positionText|remainingText|durationText|playlistText))\\b"
+        }
+      ]
+    },
+    "ui-elements": {
+      "patterns": [
+        {
+          "name": "entity.name.tag.ui-element.erire",
+          "match": "(?<=\\[|\\b)(text|label|button|btn|card|panel|input|image|webview|box|slider|progress|checkbox|toggle|list|grid|separator|divider)(?=\\.)"
+        }
+      ]
+    },
+    "events": {
+      "patterns": [
+        {
+          "name": "entity.other.attribute-name.event.erire",
+          "match": "\\.(onClick|onChange|onLoad|onHover|onLeave|onFocus|onBlur|onKey|onSubmit)(?=\\[)"
+        }
+      ]
+    },
+    "properties": {
+      "patterns": [
+        {
+          "name": "entity.other.attribute-name.property.erire",
+          "match": "\\.([a-zA-Z_][a-zA-Z0-9_]*)(?=\\[)"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.erire",
+          "match": "(==|!=|<=|>=|<|>)"
+        },
+        {
+          "name": "keyword.operator.assignment.erire",
+          "match": "="
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.delimiter.erire",
+          "match": ";"
+        },
+        {
+          "name": "punctuation.separator.comma.erire",
+          "match": ","
+        },
+        {
+          "name": "punctuation.definition.bracket.square.erire",
+          "match": "[\\[\\]]"
+        },
+        {
+          "name": "punctuation.definition.bracket.round.erire",
+          "match": "[()]"
+        },
+        {
+          "name": "punctuation.accessor.dot.erire",
+          "match": "\\."
+        }
+      ]
+    }
+  }
+}

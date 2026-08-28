@@ -1,0 +1,42 @@
+{
+  "name": "erire-language",
+  "displayName": "Erire Language Support",
+  "description": "Rich syntax highlighting and language configuration for the Erire programming language (.er files)",
+  "version": "1.0.5",
+  "publisher": "yahiasaad",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "erire",
+    "gui",
+    "native",
+    "electron"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "erire",
+        "aliases": [
+          "Erire",
+          "erire",
+          "er"
+        ],
+        "extensions": [
+          ".er"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "erire",
+        "scopeName": "source.erire",
+        "path": "./syntaxes/erire.tmLanguage.json"
+      }
+    ]
+  }
+}

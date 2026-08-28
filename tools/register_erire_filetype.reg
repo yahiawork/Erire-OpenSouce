@@ -1,0 +1,19 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\.er]
+@="Erire.Script"
+
+[HKEY_CLASSES_ROOT\Erire.Script]
+@="Erire App"
+
+[HKEY_CLASSES_ROOT\Erire.Script\DefaultIcon]
+@="C:\\Erire\\bin\\ErireStudioErireStudio.exe,0"
+
+[HKEY_CLASSES_ROOT\Erire.Script\shell]
+@="open"
+
+[HKEY_CLASSES_ROOT\Erire.Script\shell\open]
+@="Run with ErireRunner"
+
+[HKEY_CLASSES_ROOT\Erire.Script\shell\open\command]
+@="\"C:\\Erire\\bin\\ErireStudio.exe\" \"%1\""

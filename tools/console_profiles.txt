@@ -1,0 +1,10 @@
+# Erire console profiles
+# Format:
+# name = C:\Path\To\Executable.exe | optional arguments
+#
+# These are local developer profiles. Keep them limited to shells or tools
+# you explicitly trust on your own machine.
+
+powershell_local = C:\Program Files\PowerShell\7\pwsh.exe | -NoLogo
+cmd_local = C:\Windows\System32\cmd.exe |
+wsl_local = C:\Windows\System32\wsl.exe |
