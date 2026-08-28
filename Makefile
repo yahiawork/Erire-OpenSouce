@@ -5,6 +5,7 @@ STUDIO_CFLAGS = -std=c11 -O2 -s -fno-ident -Wall -Wextra -pedantic -Wno-cast-fun
 
 WIN_LIBS = -lcomdlg32 -lcomctl32 -lgdi32 -luser32 -lkernel32 -lole32 -loleaut32 -luuid -ladvapi32 -lwindowscodecs -lmsimg32 -lwinmm -lpropsys -lshell32 -lwinhttp -lcrypt32
 
+
 COMMON_SRCS = \
 	src/error.c \
 	src/console.c \
