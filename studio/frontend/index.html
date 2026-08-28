@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>erire.studio - 1.0.4 2026 - Yahia Saad</title>
+  <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+  <div id="app-shell">
+    <nav class="menubar" id="menu-bar">
+      <div class="menu-root">
+        <button class="menu-button" data-menu-toggle="file">File</button>
+        <div class="menu-panel hidden" data-menu-panel="file">
+          <button class="menu-item" data-command="newProject"><span>New Project</span><span class="menu-shortcut">Ctrl+N</span></button>
+          <button class="menu-item" data-command="openProject"><span>Open Project</span><span class="menu-shortcut">Ctrl+O</span></button>
+          <button class="menu-item" data-command="openFile"><span>Open File</span><span class="menu-shortcut">Ctrl+Shift+O</span></button>
+          <div class="menu-separator"></div>
+          <button class="menu-item" data-command="save"><span>Save</span><span class="menu-shortcut">Ctrl+S</span></button>
+          <button class="menu-item" data-command="saveAs"><span>Save As</span><span class="menu-shortcut">Ctrl+Shift+S</span></button>
+          <button class="menu-item" data-command="saveAll"><span>Save All</span></button>
+          <div class="menu-separator"></div>
+          <button class="menu-item" data-command="closeProject"><span>Close Project</span></button>
+          <button class="menu-item" data-command="exitApp"><span>Exit</span></button>
+        </div>
+      </div>
+      <div class="menu-root">
+        <button class="menu-button" data-menu-toggle="edit">Edit</button>
+        <div class="menu-panel hidden" data-menu-panel="edit">
+          <button class="menu-item" data-command="undo"><span>Undo</span><span class="menu-shortcut">Ctrl+Z</span></button>
+          <button class="menu-item" data-command="redo"><span>Redo</span><span class="menu-shortcut">Ctrl+Y</span></button>
+          <div class="menu-separator"></div>
+          <button class="menu-item" data-command="cut"><span>Cut</span><span class="menu-shortcut">Ctrl+X</span></button>
+          <button class="menu-item" data-command="copy"><span>Copy</span><span class="menu-shortcut">Ctrl+C</span></button>
+          <button class="menu-item" data-command="paste"><span>Paste</span><span class="menu-shortcut">Ctrl+V</span></button>
+          <button class="menu-item" data-command="selectAll"><span>Select All</span><span class="menu-shortcut">Ctrl+A</span></button>
+          <div class="menu-separator"></div>
+          <button class="menu-item" data-command="find"><span>Find</span><span class="menu-shortcut">Ctrl+F</span></button>
+          <button class="menu-item" data-command="replace"><span>Replace</span><span class="menu-shortcut">Ctrl+H</span></button>
+        </div>
+      </div>
+      <div class="menu-root">
+        <button class="menu-button" data-menu-toggle="view">View</button>
+        <div class="menu-panel hidden" data-menu-panel="view">
+          <button class="menu-item" data-command="toggleExplorer"><span>Toggle Explorer</span></button>
+          <button class="menu-item" data-command="toggleOutline"><span>Toggle Outline</span></button>
+          <button class="menu-item" data-command="toggleBottom"><span>Toggle Bottom Panel</span></button>
+          <button class="menu-item" data-command="resetLayout"><span>Reset Layout</span></button>
+        </div>
+      </div>
+      <div class="menu-root">
+        <button class="menu-button" data-menu-toggle="run">Run</button>
+        <div class="menu-panel hidden" data-menu-panel="run">
+          <button class="menu-item" data-command="runProject"><span>Run Project</span><span class="menu-shortcut">F5</span></button>
+          <button class="menu-item" data-command="runPythonFile"><span>Run Python File</span></button>
+          <button class="menu-item" data-command="stopProcess"><span>Stop Process</span><span class="menu-shortcut">Shift+F5</span></button>
+        </div>
+      </div>
+      <div class="menu-root">
+        <button class="menu-button" data-menu-toggle="build">Build</button>
+        <div class="menu-panel hidden" data-menu-panel="build">
+          <button class="menu-item" data-command="checkProject"><span>Check Project</span><span class="menu-shortcut">F6</span></button>
+          <button class="menu-item" data-command="buildProject"><span>Build Project</span><span class="menu-shortcut">Ctrl+B</span></button>
+        </div>
+      </div>
+      <div class="menu-root">
+        <button class="menu-button" data-menu-toggle="tools">Tools</button>
+        <div class="menu-panel hidden" data-menu-panel="tools">
+          <button class="menu-item" data-command="openErireAI"><span>Erire AI</span></button>
+          <button class="menu-item" data-command="reloadProject"><span>Reload Project</span></button>
+          <button class="menu-item" data-command="openProjectFolder"><span>Open Project Folder</span></button>
+          <button class="menu-item" data-command="refreshSymbols"><span>Refresh Symbols</span></button>
+          <button class="menu-item" data-command="clearOutput"><span>Clear Output</span></button>
+        </div>
+      </div>
+      <div class="menu-root">
+        <button class="menu-button" data-menu-toggle="settings">Settings</button>
+        <div class="menu-panel hidden" data-menu-panel="settings">
+          <button class="menu-item" data-command="openSettings"><span>Studio Settings</span><span class="menu-shortcut">Ctrl+,</span></button>
+        </div>
+      </div>
+      <div class="menu-root">
+        <button class="menu-button" data-menu-toggle="help">Help</button>
+        <div class="menu-panel hidden" data-menu-panel="help">
+          <button class="menu-item" data-command="aboutStudio"><span>About Erire Studio</span></button>
+        </div>
+      </div>
+    </nav>
+
+    <header class="toolbar">
+      <div class="toolbar-group">
+        <button data-command="newProject">New Project</button>
+        <button data-command="openProject">Open</button>
+        <button data-command="save">Save</button>
+      </div>
+      <div class="toolbar-group">
+        <button data-command="runProject" class="accent run-button">Run</button>
+        <button data-command="checkProject">Check</button>
+        <button data-command="buildProject">Build</button>
+        <button data-command="stopProcess">Stop</button>
+        <button data-command="openErireAI">Erire AI</button>
+      </div>
+      <div class="toolbar-group toolbar-stretch">
+        <div class="studio-header">
+          <img class="studio-logo" src="../../assets/brand/erire-logo.png" alt="Erire Studio Logo">
+          <div class="toolbar-title">
+            <span id="studio-brand" class="studio-brand">erire.studio - 1.0.4 2026 - Yahia Saad</span>
+            <strong id="project-title">No Project</strong>
+            <span id="project-path">Open or create an Erire project</span>
+          </div>
+        </div>
+      </div>
+      <div class="toolbar-group">
+        <button data-command="openSettings">Settings</button>
+      </div>
+    </header>
+
+    <section class="workbench">
+      <aside class="panel explorer-panel" data-panel="explorer">
+        <div class="panel-header">
+          <span>Project Explorer</span>
+          <button class="ghost" data-command="refreshProject">Refresh</button>
+        </div>
+        <div id="explorer-tree" class="tree" tabindex="0"></div>
+      </aside>
+
+      <main class="workspace-panel">
+        <div id="tab-strip" class="tab-strip"></div>
+        <div id="welcome" class="welcome">
+          <h1>Erire Studio</h1>
+          <p>Desktop IDE for Erire UI projects and Python bridge files.</p>
+          <div class="welcome-actions">
+            <button data-command="newProject" class="accent">Create Project</button>
+            <button data-command="openProject">Open Project</button>
+          </div>
+        </div>
+        <div id="editor-shell" class="editor-shell hidden">
+          <div id="editor-gutter" class="editor-gutter"></div>
+          <div id="editor-scroller" class="editor-scroller">
+            <div id="editor-current-line" class="editor-current-line"></div>
+            <pre id="editor-highlight" class="editor-highlight"></pre>
+            <textarea id="editor-input" class="editor-input" spellcheck="false" autocomplete="off" wrap="off"></textarea>
+            <div id="completion-panel" class="completion-panel hidden" role="listbox"></div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="panel outline-panel" data-panel="outline">
+        <div class="panel-header">
+          <span>Outline</span>
+          <button class="ghost" data-command="refreshSymbols">Refresh</button>
+        </div>
+        <div id="outline-list" class="outline-list"></div>
+      </aside>
+    </section>
+
+    <section class="bottom-panel" data-panel="bottom">
+      <div class="bottom-tabs">
+        <button class="bottom-tab active" data-bottom-tab="output">Output</button>
+        <button class="bottom-tab" data-bottom-tab="terminal">Terminal</button>
+        <button class="bottom-tab" data-bottom-tab="problems">Problems</button>
+        <button class="bottom-tab" data-bottom-tab="ai">AI</button>
+      </div>
+      <div class="bottom-content">
+        <pre id="panel-output" class="bottom-view active"></pre>
+        <div id="panel-terminal" class="bottom-view terminal-view">
+          <div id="terminal-history" class="terminal-history"></div>
+          <div class="terminal-entry-row">
+            <span id="terminal-prompt" class="terminal-prompt"></span>
+            <input id="terminal-input" class="terminal-input" type="text" spellcheck="false" autocomplete="off" placeholder="Type a command and press Enter">
+          </div>
+        </div>
+        <div id="panel-problems" class="bottom-view problems-view"></div>
+        <div id="panel-ai" class="bottom-view ai-view">
+          <aside class="studio-ai-sidebar">
+            <div class="studio-ai-head">
+              <strong>Erire AI</strong>
+              <span id="ai-status">Ready</span>
+            </div>
+            <label>
+              <span>API endpoint</span>
+              <input id="ai-endpoint" type="url" spellcheck="false" placeholder="https://erire.pythonanywhere.com/api/erire-ai-ide">
+            </label>
+            <label>
+              <span>Erire Key</span>
+              <input id="ai-product-key" type="password" maxlength="120" autocomplete="off" placeholder="Erire-Key-...">
+            </label>
+            <div class="studio-ai-options">
+              <label><input id="ai-include-file" type="checkbox" checked> Active file</label>
+              <label><input id="ai-include-tree" type="checkbox" checked> Project tree</label>
+              <label><input id="ai-include-problems" type="checkbox" checked> Problems</label>
+            </div>
+            <div class="studio-ai-actions">
+              <button type="button" data-ai-command="saveSettings">Save</button>
+              <button type="button" data-ai-command="clearChat">Clear</button>
+            </div>
+            <div class="studio-ai-quick">
+              <button type="button" data-ai-prompt="Explain the active Erire file and point out risky syntax.">Explain file</button>
+              <button type="button" data-ai-prompt="Fix the current build or runtime errors using the active file and problems.">Fix errors</button>
+              <button type="button" data-ai-prompt="Review the selected code or active file and suggest a better Erire implementation.">Review</button>
+              <button type="button" data-ai-prompt="Generate a clean Erire UI block that fits this project.">Generate UI</button>
+              <button type="button" data-ai-prompt="Design a Python bridge function for this Erire project.">Python bridge</button>
+            </div>
+          </aside>
+          <section class="studio-ai-chat">
+            <div id="ai-messages" class="studio-ai-messages" aria-live="polite"></div>
+            <form id="ai-form" class="studio-ai-composer">
+              <textarea id="ai-input" rows="2" maxlength="4000" placeholder="Ask Erire AI..." required></textarea>
+              <button id="ai-send" type="submit" class="accent">Send</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <footer class="statusbar">
+      <span id="status-file">No file</span>
+      <span id="status-project">No project</span>
+      <span id="status-cursor">Ln 1, Col 1</span>
+      <span id="status-language">text</span>
+      <span id="status-process">idle</span>
+      <span id="status-save">Saved</span>
+    </footer>
+  </div>
+
+  <div id="modal-backdrop" class="modal-backdrop hidden">
+    <div id="modal-new-project" class="modal hidden">
+      <div class="modal-header">
+        <h2>New Erire Project</h2>
+        <button class="ghost" data-close-modal="newProject">Close</button>
+      </div>
+      <label>
+        <span>Project name</span>
+        <input id="new-project-name" type="text" placeholder="My App">
+      </label>
+      <label>
+        <span>Location</span>
+        <div class="input-row">
+          <input id="new-project-location" type="text" placeholder="C:\Projects">
+          <button data-dialog-target="newProjectLocation">Browse</button>
+        </div>
+      </label>
+      <label>
+        <span>Template</span>
+        <select id="new-project-template">
+          <option value="default">Desktop UI Starter</option>
+          <option value="blank">Blank Window</option>
+          <option value="workspace">Workspace Tool</option>
+          <option value="python-tool">Python Bridge Tool</option>
+          <option value="showcase">Showcase Demo</option>
+        </select>
+      </label>
+      <div id="template-hint" class="template-hint">
+        A balanced Erire desktop app with UI structure, Python bridge support, and starter content.
+      </div>
+      <div class="modal-actions">
+        <button data-command="submitNewProject" class="accent">Create Project</button>
+      </div>
+    </div>
+
+    <div id="modal-settings" class="modal hidden">
+      <div class="modal-header">
+        <h2>Studio Settings</h2>
+        <button class="ghost" data-close-modal="settings">Close</button>
+      </div>
+      <label>
+        <span>Erire executable</span>
+        <div class="input-row">
+          <input id="settings-erire" type="text" placeholder="erire.exe">
+          <button data-dialog-target="settingsErire">Browse</button>
+        </div>
+      </label>
+      <label>
+        <span>Python executable</span>
+        <div class="input-row">
+          <input id="settings-python" type="text" placeholder="python.exe">
+          <button data-dialog-target="settingsPython">Browse</button>
+        </div>
+      </label>
+      <label>
+        <span>Editor font</span>
+        <input id="settings-font-name" type="text" placeholder="Cascadia Code">
+      </label>
+      <label>
+        <span>Theme</span>
+        <select id="settings-theme">
+          <option value="dark-2026">Dark 2026</option>
+          <option value="vscode-dark">Dark (VS Code)</option>
+          <option value="abyss">Abyss</option>
+          <option value="monokai">Monokai</option>
+          <option value="solarized-dark">Solarized Dark</option>
+          <option value="vs-light">Light (Visual Studio)</option>
+        </select>
+      </label>
+      <label>
+        <span>Editor font size</span>
+        <input id="settings-font-size" type="number" min="10" max="32" value="14">
+      </label>
+      <label class="checkbox-row">
+        <input id="settings-autosave" type="checkbox">
+        <span>Autosave active document after edits</span>
+      </label>
+      <div class="settings-hint">
+        Shortcuts: `Ctrl+N` new, `Ctrl+O` open project, `Ctrl+Shift+O` open file, `Ctrl+S` save, `Ctrl+Shift+S` save as, `Ctrl+F` find, `Ctrl+H` replace, `Ctrl+B` build, `F5` run, `Shift+F5` stop.
+      </div>
+      <div class="modal-actions">
+        <button data-command="saveSettings" class="accent">Save Settings</button>
+      </div>
+    </div>
+
+    <div id="modal-about" class="modal hidden">
+      <div class="modal-header">
+        <h2>About Erire Studio</h2>
+        <button class="ghost" data-close-modal="about">Close</button>
+      </div>
+      <div class="about-block">
+        <img class="about-logo" src="../../assets/brand/erire-logo.png" alt="Erire Studio Logo">
+        <div>
+          <strong>erire.studio - 1.0.4 2026 - Yahia Saad</strong>
+          <p>Created and developed by FirstStandStudio (Yahia Saad).</p>
+          <p class="about-link">Website: <button class="link-button" data-command="openFirstStandStudio">firststandstudio.github.io</button></p>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button data-command="openFirstStandStudio" class="accent">Open Website</button>
+      </div>
+    </div>
+
+    <div id="modal-dialog" class="modal hidden dialog-modal">
+      <div class="modal-header">
+        <h2 id="dialog-title">Confirm</h2>
+        <button class="ghost" data-dialog-action="cancel">Close</button>
+      </div>
+      <div class="dialog-body">
+        <p id="dialog-message" class="dialog-message">Are you sure?</p>
+        <label id="dialog-input-row" class="dialog-input-row hidden">
+          <span id="dialog-input-label">Value</span>
+          <input id="dialog-input" type="text" placeholder="">
+        </label>
+      </div>
+      <div class="modal-actions dialog-actions">
+        <button id="dialog-cancel" data-dialog-action="cancel">Cancel</button>
+        <button id="dialog-confirm" class="accent" data-dialog-action="confirm">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="editor-context-menu" class="context-menu hidden">
+    <button class="context-item" data-command="undo">Undo</button>
+    <button class="context-item" data-command="redo">Redo</button>
+    <div class="menu-separator"></div>
+    <button class="context-item" data-command="cut">Cut</button>
+    <button class="context-item" data-command="copy">Copy</button>
+    <button class="context-item" data-command="paste">Paste</button>
+    <button class="context-item" data-command="selectAll">Select All</button>
+  </div>
+
+  <div id="toast-host" class="toast-host" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
