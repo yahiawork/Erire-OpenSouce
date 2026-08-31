@@ -1,6 +1,6 @@
 First Stand Studio Proprietary License v1.0
 
-Copyright (c) 2026 Yahia Saad / First Stand Studio.
+Copyright (c) 2026 VexUmbra / First Stand Studio.
 All rights reserved.
 
 1. Scope and Ownership
